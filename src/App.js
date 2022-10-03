@@ -1,6 +1,12 @@
-function App() {
+ import React from "react";
+ import Counter from "./Components/Counter";
+ import Game from "./Components/Game"
+ 
+ function App() {
   return (
     <div className="App">
+      <Counter />
+      <Game />
     </div>
   );
 }
