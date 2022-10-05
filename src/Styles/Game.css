@@ -1,4 +1,6 @@
 .game {
     background-image: url("../Images/background.png");
-    background-size: cover;
+    width: 1365px;
+    height: 674px;
+    background-repeat: no-repeat;
 }

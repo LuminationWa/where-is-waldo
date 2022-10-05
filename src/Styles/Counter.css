@@ -1,0 +1,12 @@
+.counter {
+    position: absolute;
+    top: 5%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+}
+
+.char-portrait {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 15px;
+}
