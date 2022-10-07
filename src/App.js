@@ -1,6 +1,6 @@
  import React from "react";
  import Counter from "./Components/Counter";
- import Game from "./Components/Game"
+ import Game from "./Components/Game"; 
  
  function App() {
   return (
