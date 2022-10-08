@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import "../Styles/Char-Select.css";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDXclI1XAm-0FUehZS_avaCwWq5ydolohU",
@@ -20,10 +21,11 @@ const db = firebase.firestore();
 const CharSelect = (props) => {
   let coordInfo = "0 0";
   useEffect(() => {
-    coordInfo = props;
-  }, [props]);
+    coordInfo = props.currentCoord;
+  }, [props.currentCoord]);
 
   const getInfo = async () => {
+    // Gets the database info
     var docRef = db.collection("characters").doc("RVVylJZtGldpIK2WDXfg");
     let docInfo = await docRef
       .get()
@@ -43,19 +45,30 @@ const CharSelect = (props) => {
 
   const checkRange = (value1, value2) => {
     // Verifies that values are within the accepted area
-    return (value1 <= value2 + 30 && value2 - 30 <= value1);
+    return value1 <= value2 + 30 && value2 - 30 <= value1;
   };
 
   const verifyInfo = (dbInfo, coordInfo, character) => {
     // Compares the character coordinates from the user with the ones from the db
     let characterInfo = dbInfo[character].split(" ");
-    let coordInfo2 = coordInfo.currentCoord.split(" ");
+    let coordInfo2 = coordInfo.split(" ");
     if (
       checkRange(parseInt(characterInfo[0]), parseInt(coordInfo2[0])) &&
       checkRange(parseInt(characterInfo[1]), parseInt(coordInfo2[1]))
     ) {
+      removeChar(character);
       console.log("in range");
     } else console.log("not in range");
+  };
+
+  const removeChar = (character) => {
+    let array = [...props.remainingChar];
+    let index = array.indexOf(character);
+    if (index !== -1) {
+      array.splice(index, 1);
+      props.setRemainingChar(array);
+    }
+    console.log(array);
   };
 
   return (

@@ -4,3 +4,15 @@
     height: 674px;
     background-repeat: no-repeat;
 }
+
+.target-box {
+    top: -50px;
+    left: -50px;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 1px solid white;
+    position: absolute;
+    background: gray;
+    opacity: 0.5;
+}
