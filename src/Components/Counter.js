@@ -2,6 +2,7 @@ import "../Styles/Counter.css";
 import Finn from "../Images/finn.png";
 import Jake from "../Images/jake.jpg";
 import Marceline from "../Images/marceline.jpg";
+import Timer from "./Timer";
 import { useEffect } from "react";
 
 const Counter = (props) => {
@@ -36,7 +37,7 @@ const Counter = (props) => {
           ></img>
         </div>
       </div>
-      <div class="clock">Placeholder</div>
+      <Timer />
     </div>
   );
 };
