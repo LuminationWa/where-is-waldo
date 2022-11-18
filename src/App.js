@@ -1,4 +1,6 @@
- import React from "react";
+// DB needs to be updated
+
+import React from "react";
  import Game from "./Components/Game"; 
  
  function App() {
